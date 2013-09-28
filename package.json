@@ -1,0 +1,35 @@
+{
+    
+    "author": "Shen Weizhong, Zhang Xiaolu",
+    
+    "name": "CDN",
+    
+    "description": "Our goal is to create effective fallback strategies, and making our development become more convenient.",
+    
+    "version": "0.1.0",
+    
+    "homepage": "http://www.fenqimall.com/",
+    
+    "repository": {
+        
+        "type": "git",
+        
+        "url": "https://github.com/Huitong-Finance/CDN.git"
+        
+    },
+    
+    "scripts": {},
+    
+    "dependencies": {},
+    
+    "devDependencies": {},
+    
+    "optionalDependencies": {},
+    
+    "engines": {
+        
+        "nginx": "*"
+        
+    }
+    
+}
