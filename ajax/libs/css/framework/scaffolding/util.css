@@ -27,15 +27,14 @@
 
 
 /* 
- * 888    888 888    d8b 888
- * 888    888 888    Y8P 888
- * 888    888 888        888
- * 888    888 888888 888 888
- * 888    888 888    888 888 .d8888b
- * 888    888 888    888 888 88K
- * 888    888 888    888 888 "Y8888b.
- * Y88888888Y Y88b.  888 888      X88
- *  "Y8888Y"   "Y888 888 888  8888P'
+ *  .d8888b.                                888    888 888    d8b 888
+ * d88P  Y88b                               888    888 888    Y8P 888
+ * 888    888                               888    888 888        888
+ * 888         .d88b.  888d888  .d88b.      888    888 888888 888 888 .d8888b
+ * 888        d88""88b 888P"   d8P  Y8b     888    888 888    888 888 88K
+ * 888    888 888  888 888     88888888     888    888 888    888 888 "Y8888b.
+ * Y88b  d88P Y88..88P 888     Y8b.         Y88888888Y Y88b.  888 888      X88
+ *  "Y8888P"   "Y88P"  888      "Y8888       "Y8888Y"   "Y888 888 888  8888P'
  */
 
 
@@ -68,6 +67,8 @@
     max-width: none; /* 2 */
     
 }
+
+
 
 /**
  * Text utilities: Horizontal text alignment
@@ -191,7 +192,93 @@
 }
 
 /**
+ * Hyphenation
+ * 
+ * Internet Explorer 10 and Windows Store apps using JavaScript in Windows 8 introduce support for an important CSS Text Level 3 feature: hyphenation. 
+ * 
+ * More, http://msdn.microsoft.com/zh-cn/library/ie/bg124094(v=vs.85).aspx
+ */
+
+.msHyphenation {
+	
+	-ms-hyphens: auto;
+	
+	-ms-hyphenate-limit-zone: 50px;
+	
+	-ms-hyphenate-limit-chars: auto;
+	
+	-ms-hyphenate-limit-lines: no-limit;
+	
+}
+
+.hideText {
+	
+    font: 0/0 a;
+	
+    color: transparent;
+	
+    text-shadow: none;
+	
+    background-color: transparent;
+	
+    border: 0;
+	
+}
+
+.antialiased {
+	
+    -webkit-font-smoothing: antialiased;
+
+    text-rendering: optimizeLegibility;
+	
+}
+
+/**
+ * 1. https://developer.mozilla.org/zh-CN/docs/CSS/user-select
+ * 
+ * 2. https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/css/property/-webkit-user-select
+ * 
+ * 3. http://msdn.microsoft.com/zh-cn/library/ie/jj152140(v=vs.85).aspx
+ * 
+ * Browser compatibility, https://developer.mozilla.org/zh-CN/docs/CSS/user-select#Browser_compatibility
+ */
+
+.textSelectable {
+	
+	user-select: text;
+	
+	-moz-user-select: text; /* 1 */
+	
+	-webkit-user-select: text; /* 2 */
+	
+	-khtml-user-select: text; /* 2 */
+	
+	-ms-user-select: text; /* 3 */
+	
+}
+
+.unselectable {
+	
+	user-select: none;
+	
+	-moz-user-select: none; /* 1 */
+	
+	-webkit-user-select: none; /* 2 */
+	
+	-khtml-user-select: none; /* 2 */
+	
+	-ms-user-select: none; /* 3 */
+	
+}
+
+
+
+/**
  * Display utilities
+ * 
+ * 1. "display: inline-block;"的深入理解, http://www.planabc.net/2007/03/11/display_inline-block/
+ * 
+ * 2. "Cross-Browser Inline-Block", http://blog.mozilla.org/webdev/2009/02/20/cross-browser-inline-block/
  */
 
 .inlineDisplay {
@@ -224,20 +311,6 @@
     
 }
 
-.hide {
-    
-    display: none;
-    
-}
-
-.advancedHide {
-    
-    visibility: hidden;
-	
-	display: none;
-    
-}
-
 /**
  * Control visibility without affecting flow.
  */
@@ -251,6 +324,20 @@
 .isVisible {
     
     visibility: visible !important;
+    
+}
+
+.hide {
+    
+    display: none;
+    
+}
+
+.advancedHide {
+    
+    visibility: hidden;
+	
+	display: none;
     
 }
 
@@ -297,74 +384,6 @@
     
 }
 
-/**
- * States utilities ( Cursor ). Indicate that interaction will result in an (in)action.
- */
-
-.alias { cursor: alias; }
-
-.allScroll { cursor: all-scroll; }
-
-.autoCursor { cursor: auto; }
-
-.cellCursor { cursor: cell; }
-
-.colResize { cursor: col-resize; }
-
-.contextMenu { cursor: context-menu; }
-
-.copyCursor { cursor: copy; }
-
-.crossHair { cursor: crosshair; }
-
-.defaultCursor { cursor: default; }
-
-.eResizeCursor { cursor: e-resize; }
-
-.ewResizeCursor { cursor: ew-resize; }
-
-.helpCursor { cursor: help; }
-
-.moveCursor { cursor: move; }
-
-.nResizeCursor { cursor: n-resize; }
-
-.neResizeCursor { cursor: ne-resize; }
-
-.neswResizeCursor { cursor: nesw-resize; }
-
-.noCursorCursor { cursor: none; }
-
-.noDropCursor { cursor: no-drop; }
-
-.notAllowedCursor { cursor: not-allowed; }
-
-.nsResizeCursor { cursor: ns-resize; }
-
-.nwResizeCursor { cursor: nw-resize; }
-
-.nwseResizeCursor { cursor: nwse-resize; }
-
-.pointerCursor { cursor: pointer; }
-
-.progressCursor { cursor: progress; }
-
-.rowResizeCursor { cursor: row-resize; }
-
-.sResizeCursor { cursor: s-resize; }
-
-.seResizeCursor { cursor: se-resize; }
-
-.swResizeCursor { cursor: sw-resize; }
-
-.textCursor { cursor: text; }
-
-.verticalTextCursor { cursor: vertical-text; }
-
-.wResizeCursor { cursor: w-resize; }
-
-.waitCursor { cursor: wait; }
-
 /*
  * Opacity.
  */
@@ -394,28 +413,6 @@
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE8  */
 	
 	filter: alpha(opacity=0); /* IE5-7  */
-	
-}
-
-.hideText {
-	
-    font: 0/0 a;
-	
-    color: transparent;
-	
-    text-shadow: none;
-	
-    background-color: transparent;
-	
-    border: 0;
-	
-}
-
-.antialiased {
-	
-    -webkit-font-smoothing: antialiased;
-
-    text-rendering: optimizeLegibility;
 	
 }
 
@@ -518,6 +515,7 @@ p.lead {
 	position: relative;
 	
 }
+
 .absol {
 	
 	position: absolute;
@@ -638,20 +636,6 @@ p.lead {
 	
 }
 
-.unselectable {
-	
-	user-select: none;
-	
-	-moz-user-select: none;
-	
-	-webkit-user-select: none;
-	
-	-khtml-user-select: none;
-	
-	-ms-user-select: none;
-	
-}
-
 
 
 /**
@@ -729,14 +713,6 @@ p.lead {
  */
 
 .redHightlightTest {
-    
-    color: hsl(0,100%,100%) !important;
-    
-	color: hsla(0,100%,100%,1) !important;
-    
-    color: rgb(255,0,0) !important;
-	
-	color: rgba(255,0,0,1) !important;
     
     color: #F00 !important;
     
@@ -839,17 +815,17 @@ p.lead {
 */
 
 .box_round {
+	
+	-webkit-border-radius: 4px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
     
-    -webkit-border-radius: 12px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
+    -moz-border-radius: 4px;
     
-    -moz-border-radius: 12px;
-    
-         border-radius: 12px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */
+        border-radius: 4px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */
 
     -webkit-background-clip: padding-box;
     
     background-clip: padding-box; /* useful if you don't want a bg color from leaking outside the border: */
-    
+	
 }
 
 .box_shadow_black {

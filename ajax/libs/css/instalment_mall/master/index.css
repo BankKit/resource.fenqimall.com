@@ -17,12 +17,25 @@
  * 
  * Creation Date: 2013.10.02 15:48 ( Tony ).
  * 
- * Last update: 2013.10.02 20:28 ( Tony ).
+ * Last update: 2013.10.05 23:48 ( Tony ).
  * 
  * License: ~
  * 
  * Copyright: ~
  */
+
+
+
+/*
+888    888                        888
+888    888                        888
+888    888                        888
+8888888888  .d88b.   8888b.   .d88888  .d88b.  888d888
+888    888 d8P  Y8b     "88b d88" 888 d8P  Y8b 888P"
+888    888 88888888 .d888888 888  888 88888888 888
+888    888 Y8b.     888  888 Y88b 888 Y8b.     888
+888    888  "Y8888  "Y888888  "Y88888  "Y8888  888
+*/
 
 /*
          (__)
@@ -35,27 +48,17 @@
 
 .leftH1st {
 	
-	color: #848484;
+	color: #686868;
 	
 }
 
 .h1st li {
-	
-	float: left;
-	
-	margin: 0;
-	
-	padding: 0;
-	
-	margin-top: 8px;
 	
 	letter-spacing: 1px;
 	
 }
 
 .h1st a {
-	
-	padding: 0 19px 0 19px;
 	
 	border-right: 1px solid #848484;
 	
@@ -67,25 +70,13 @@
 	
 }
 
-.h1st a.more {
-	
-	padding-right: 23px;
-	
-}
-
 .h1st a.more > i {
-	
-	width: 13px;
-	
-	height: 7px;
-	
-	top: 4px;
-	
-	right: 0;
 	
 	background: url(../../../ui/mall/master/single/more.jpg) no-repeat;
 	
 }
+
+
 
 /*
          (__)
@@ -95,6 +86,12 @@
 *  ||----||
   ___/  ___/
 */
+
+.leftH2nd {
+	
+	background: url(../../../ui/mall/master/single/logo.jpg) left center no-repeat;
+	
+}
 
 nav > ul > li {
 	
@@ -108,21 +105,11 @@ nav > ul  > li > a {
 	
 	font-family: "微软雅黑";
 	
-	text-align: center;
-	
-	width: 101px;
-	
-	height: 101px;
-	
-	padding-top: 52px;
-	
 }
 
 nav > ul > li > a:hover {
 
 	border-bottom: 5px solid #ff4416;
-
-	text-decoration: none;
 
 }
 
@@ -138,16 +125,194 @@ nav > ul > li > a:hover {
 	
 }
 
-nav a.selected {
+nav > ul > li > a.selected {
 	
 	border-bottom: 5px solid #ff4416;
 	
 }
 
-.ie7 nav a.selected {
+.ie7 nav > ul > li > a.selected {
 	
 	height: 44px;
 	
 	border-bottom: 5px solid #ff4416;
+	
+}
+
+
+
+/* 
+8888888888                   888                     
+888                          888                     
+888                          888                     
+8888888     .d88b.   .d88b.  888888  .d88b.  888d888 
+888        d88""88b d88""88b 888    d8P  Y8b 888P"   
+888        888  888 888  888 888    88888888 888     
+888        Y88..88P Y88..88P Y88b.  Y8b.     888     
+888         "Y88P"   "Y88P"   "Y888  "Y8888  888             
+*/
+
+/*
+         (__)
+         (oo)
+  /-------\/
+ / |     ||----> Footer Form.
+*  ||----||
+  ___/  ___/
+*/
+
+footer * {
+	
+	font-family: "微软雅黑";
+	
+}
+
+footer > .formArea > #frmRegister > div {
+	
+	font-size: 16px;
+	
+	background: #f4f4f4 url(../../../ui/mall/master/single/userId.jpg) 21px center no-repeat;
+	
+}
+
+footer > .formArea > #frmRegister > div > input {
+	
+	color: #87888d;
+	
+	background-color: #f4f4f4;
+	
+}
+
+footer > .formArea > #frmRegister > button {
+	
+	color: #FFF;
+	
+	font-size: 18px;
+	
+	-webkit-box-shadow: 0 5px 0 #990404; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+	
+	box-shadow: 0 5px 0 #990404; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+	
+	background-color: #e9461f;
+	
+}
+
+footer > .formArea > #frmRegister > button:hover {
+	
+	margin-top: 68px;
+	
+	-webkit-box-shadow: 0 3px 0 #990404; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+	
+	box-shadow: 0 3px 0 #990404; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+	
+}
+
+.ie7 footer > .formArea > #frmRegister > button:hover {
+	
+	margin-top: 66px;
+	
+	background-color: #ff000c;
+	
+}
+
+footer > .formArea > a {
+	
+	color: #FFF;
+	
+	font-size: 18px;
+	
+	border: 1px solid #999;
+	
+	background-color: #333;
+	
+}
+
+footer > .formArea > a:hover {
+	
+	background-color: #3f3f3f;
+	
+}
+
+/*
+         (__)
+         (oo)
+  /-------\/
+ / |     ||----> Footer Site Map.
+*  ||----||
+  ___/  ___/
+*/
+
+footer > .sitemap h4 {
+	
+	color: #FFF;
+	
+	font-size: 18px;
+	
+}
+
+footer > .sitemap a {
+	
+	color: #CCC;
+	
+	font-family: "新宋体";
+	
+}
+
+footer > .sitemap > .spColumn > span {
+	
+	color: #CCC;
+	
+	font-family: "新宋体";
+	
+}
+
+footer > .sitemap > .spColumn > span > a {
+	
+	cursor: default;
+	
+	color: #FFF;
+	
+	font-weight: 900;
+	
+	font-family: "微软雅黑";
+	
+}
+
+footer > .sitemap > .spColumn > div {
+	
+	background: url(../../../ui/mall/master/single/sinaIcon.png) center left no-repeat;
+	
+}
+
+footer > .sitemap > .spColumn > div > a {
+	
+	color: #CCC;
+	
+	font-size: 12px;
+	
+	border: 1px solid #CCC;
+	
+}
+
+footer > .sitemap > .spColumn > div > a:hover {
+	
+	background-color: #3f3f3f;
+	
+}
+
+/*
+         (__)
+         (oo)
+  /-------\/
+ / |     ||----> Footer Copy Right.
+*  ||----||
+  ___/  ___/
+*/
+
+footer > .copyRight > span {
+	
+	color: #CCC;
+	
+	font-family: "新宋体";
 	
 }
