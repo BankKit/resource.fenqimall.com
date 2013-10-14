@@ -1,7 +1,7 @@
 /**
  * Statement: Just shut the fuck up!In case you hadn’t noticed, I’m a bit of a stickler for terminology.You motherfucker!!!
  * 
- * Describe: The javascript boot file of third master page ( ~/release/master/index@3.html ).
+ * Describe: JavaScript boot file ( Index Page ).
  * 
  * Further changes, comments: ~
  * 
@@ -11,9 +11,9 @@
  * 
  * Version: 0.1.0
  * 
- * Creation Date: 2013.10.14 13:32 ( Tony ).
+ * Creation Date: 2013.10.14 14:37 ( Tony ).
  * 
- * Last update: 2013.10.14 14:04 ( Tony ).
+ * Last update: 2013.10.14 14:48 ( Tony ).
  * 
  * License: ~
  * 
@@ -96,13 +96,33 @@
 			
 			'cdnjs/gridder/0.1.0/gridder',
 			
-			'cdnjs/jquery_title_modify/title.modify'
-		
+			'cdnjs/jquery_title_modify/title.modify',
+			
+			'cdnjs/instalment_mall/master/validation.plus'
+			
 		], function (modernizr, SJ, cookie, gridder, modifyTitle) {
 			
 			SJ(function ($) {
 				
-				var nav = $("nav");
+				var nav = $("nav"),
+					
+					footerForm = $('#mstFtr1stRgst'),
+					
+					idxFltRgst = $('#idxFltRgst');
+				
+				
+				
+				/**
+				 * Navigation Demo.
+				 */
+				
+				nav.find('a').on('click', function (e) {
+					
+					e.preventDefault();
+					
+					$(this).addClass('selected').closest('li').siblings().children().removeClass('selected');
+					
+				});
 				
 				
 				
@@ -120,7 +140,30 @@
 				
 				modifyTitle();
 				
+				
+				
+				/**
+				 * Footer registration form checker.
+				 */
+				idxFltRgst.formcheck();
+				
+				footerForm.formcheck();
+				
+				
+				
+				/**
+				 * First promo animation.
+				 */
+				
+				//var winValidHeight = $(window).height();
+				
+				//$('.idxPromo').height(winValidHeight-133);
+				
+				/*$('.idxFltForm').fadeIn('fast');*/
+				
 			});
+			
+			
 			
 		});
 		
@@ -157,5 +200,5 @@
 		jq2x: '//resource.fenqimall.com/ajax/libs/js/jquery/2.0.3/jquery.min'
 		
 	});
-		
+	
 }(window, document, requirejs, require));
