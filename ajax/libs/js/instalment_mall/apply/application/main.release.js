@@ -1,7 +1,7 @@
 /**
- * Statement: Just shut the fuck up!In case you hadn’t noticed, I’m a bit of a stickler for terminology.You motherfucker!!!
+ * Statement: gehen zum Teufel.
  * 
- * Describe: The javascript boot file of login page ( ~/login/index.html ).
+ * Describe: The javascript boot file of application page ( ~/apply/index.html ).
  * 
  * Further changes, comments: ~
  * 
@@ -11,9 +11,9 @@
  * 
  * Version: 0.1.0
  * 
- * Creation Date: 2013.10.17 16:39 ( Tony ).
+ * Creation Date: 2013.10.17 16:45 ( Doris ).
  * 
- * Last update: 2013.10.17 16:39 ( Tony ).
+ * Last update: 2013.10.17 16:45 ( Doris ).
  * 
  * License: ~
  * 
@@ -93,18 +93,25 @@
 			'jquery',
 			
 			'cdnjs/jquery_cookie/1.3.1/jquery.cookie.min',
+
+			'cdnjs/jquery_overlaymodule/0.1.0/jquery.overlaymodule',
+
+			'cdnjs/jquery_datepicker/0.1.0/jquery.datetimepicker',
 			
 			'cdnjs/gridder/0.1.0/gridder',
 			
 			'cdnjs/jquery_title_modify/title.modify'
 		
-		], function (modernizr, SJ, cookie, gridder, modifyTitle) {
+		], function (modernizr, SJ, cookie, Doverlaymodule, datetimepicker, gridder, modifyTitle) {
 			
 			SJ(function ($) {
-                
-                
 				
-				
+				$('#submitBtn').overlaymodule({confirmObj: 'confirmWrapper', formId: 'personalInfo'});
+
+				$('.form_datetime').datepicker({format: 'yyyy-mm-dd'});
+
+
+
 				/**
 				 * Development dependency: grid system.
 				 */
@@ -156,5 +163,5 @@
 		jq2x: '//resource.fenqimall.com/ajax/libs/js/jquery/2.0.3/jquery.min'
 		
 	});
-    
+		
 }(window, document, requirejs, require));
