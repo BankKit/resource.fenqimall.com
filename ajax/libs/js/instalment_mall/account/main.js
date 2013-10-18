@@ -1,19 +1,19 @@
 /**
- * Statement: Just shut the fuck up!In case you hadn’t noticed, I’m a bit of a stickler for terminology.You motherfucker!!!
+ * Statement: gehen zum Teufel.
  * 
- * Describe: The javascript boot file of second login page ( ~/login/index@2.html ).
+ * Describe: The javascript boot file of account page (account/index.html).
  * 
  * Further changes, comments: ~
  * 
  * Docs: ~
  * 
- * Original Author: Tony ( Shen Weizhong ).
+ * Original Author: Doris ( Zhang Xiaolu ).
  * 
  * Version: 0.1.0
  * 
- * Creation Date: 2013.10.18 04:31 ( Tony ).
+ * Creation Date: 2013.10.18 17:07 ( Doris ).
  * 
- * Last update: 2013.10.18 04:31 ( Tony ).
+ * Last update: 2013.10.18 17:53 ( Doris ).
  * 
  * License: ~
  * 
@@ -102,7 +102,42 @@
 			
 			SJ(function ($) {
 				
+				var nav = $("nav");
 				
+				
+				
+				/**
+				 * Navigation Demo.
+				 */
+				
+				nav.find('a').on('click', function (e) {
+					
+					e.preventDefault();
+					
+					$(this).addClass('selected').closest('li').siblings().children().removeClass('selected');
+					
+				});
+
+
+
+
+
+
+
+
+
+				var docHeight = $(document).height(),
+
+					headerHeight = $('header').height();
+
+				$('.leftSidebar').css({"height": docHeight-headerHeight});
+
+
+
+
+
+
+
 				
 				/**
 				 * Development dependency: grid system.
@@ -155,5 +190,5 @@
 		jq2x: 'ajax/libs/js/jquery/2.0.3/jquery.min'
 		
 	});
-	
+		
 }(window, document, requirejs, require));
