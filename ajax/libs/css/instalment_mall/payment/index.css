@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+
+
+/**
+ * Statement: Just shut the fuck up!In case you hadn’t noticed, I’m a bit of a stickler for terminology.You motherfucker!!!
+ * 
+ * Describe: The private stylesheet of the payment page (~/payment/index.html).
+ * 
+ * Further changes, comments: ~
+ * 
+ * Docs: ~
+ * 
+ * Original Author: Doris ( Zhang Xiaolu ).
+ * 
+ * Version: 0.1.0
+ * 
+ * Creation Date: 2013.10.20 20:01 ( Doris ).
+ * 
+ * Last update: 2013.10.20 20:01 ( Doris ).
+ * 
+ * License: ~
+ * 
+ * Copyright: ~
+ */
+
+
+ body > div > form {
+
+	background-color: #f1f1f1;
+
+}
+
+body > div > form > .simpleAlert {
+
+	background-color: #c7f0e0;
+
+}
+
+body > div > form > .simpleAlert > span {
+
+	font-weight: 900;
+
+}
+
+body > div > form > .simpleAlert > .proDownPayment > .valueMargin {
+
+	color: #ff7e02;
+
+	font-weight: 900;
+
+	font-size: 20px;
+
+	font-family: "黑体";
+
+}
+
+body > div > form > #payOption {
+
+	margin-top: 25px;
+
+	margin-left: 35px;
+
+}
+
+body > div > form > .lblPayOption {
+
+	margin-top: 23px;
+
+	margin-left: 10px;
+
+}
