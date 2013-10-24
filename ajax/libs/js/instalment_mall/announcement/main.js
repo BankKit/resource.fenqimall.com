@@ -1,7 +1,7 @@
 /**
  * Statement: Just shut the fuck up!In case you hadn’t noticed, I’m a bit of a stickler for terminology.You motherfucker!!!
  * 
- * Describe: The javascript boot file of third master page ( ~/release/master/index@3.html ).
+ * Describe: The javascript boot file of the announcement page (~/announcement/index.html).
  * 
  * Further changes, comments: ~
  * 
@@ -11,9 +11,9 @@
  * 
  * Version: 0.1.0
  * 
- * Creation Date: 2013.10.14 13:32 ( Tony ).
+ * Creation Date: 2013.10.21 18:09 ( Tony ).
  * 
- * Last update: 2013.10.14 14:04 ( Tony ).
+ * Last update: 2013.10.21 218:09 ( Tony ).
  * 
  * License: ~
  * 
@@ -62,7 +62,7 @@
 		
 		requirejs.config({
 			
-			baseUrl: '//resource.fenqimall.com/ajax/libs',
+			baseUrl: '../CDN',
 			
 			enforceDefine: false,
 			
@@ -70,7 +70,7 @@
 				
 				'jquery': jquery,
 				
-				'cdnjs': 'js'
+				'cdnjs': 'ajax/libs/js'
 				
 			},
 			
@@ -92,17 +92,41 @@
 			
 			'jquery',
 			
+			'cdnjs/jquery_easing/1.3/jquery.easing.min',
+			
 			'cdnjs/jquery_cookie/1.3.1/jquery.cookie.min',
 			
 			'cdnjs/gridder/0.1.0/gridder',
 			
 			'cdnjs/jquery_title_modify/title.modify'
 		
-		], function (modernizr, SJ, cookie, gridder, modifyTitle) {
+		], function (modernizr, SJ, easing, cookie, gridder, modifyTitle) {
 			
 			SJ(function ($) {
 				
+				var directoryPanel = $('.directoryPanel'),
+					
+					directoryContainer = directoryPanel.children('ul'),
+					
+					directoryUnit = directoryContainer.children('li'),
+					
+					articleHeader = directoryUnit.children('ul').eq(0);
 				
+				$('.directoryPanel > ul > li > ul.artTitleContainer').on('click', function () {
+					
+					var that = $(this),
+						
+						trig = that.next();
+					
+					trig.slideToggle({
+						
+						duration: 1000,
+						
+						easing: 'easeOutQuart'
+						
+					});
+					
+				});
 				
 				/**
 				 * Development dependency: grid system.
@@ -150,9 +174,9 @@
 	
 	boot.judgement({
 		
-		jq1x: '//resource.fenqimall.com/ajax/libs/js/jquery/1.10.2/jquery.min',
+		jq1x: 'ajax/libs/js/jquery/1.10.2/jquery.min',
 		
-		jq2x: '//resource.fenqimall.com/ajax/libs/js/jquery/2.0.3/jquery.min'
+		jq2x: 'ajax/libs/js/jquery/2.0.3/jquery.min'
 		
 	});
 		
