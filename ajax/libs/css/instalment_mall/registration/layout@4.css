@@ -1,0 +1,344 @@
+@charset "utf-8";
+
+
+
+/**
+ * Statement: Just shut the fuck up!In case you hadn’t noticed, I’m a bit of a stickler for terminology.You motherfucker!!!
+ * 
+ * Describe: The private layout stylesheet of third registration progress page ( ~/registration/index@4.html ).
+ * 
+ * Further changes, comments: ~
+ * 
+ * Docs: ~
+ * 
+ * Original Author: Tony ( Shen Weizhong ).
+ * 
+ * Version: 0.1.0
+ * 
+ * Creation Date: 2013.10.30 16:54 ( Tony ).
+ * 
+ * Last update: 2013.10.30 16:54 ( Tony ).
+ * 
+ * License: ~
+ * 
+ * Copyright: ~
+ */
+
+
+
+/*
+		 (__)
+		 (oo)
+  /-------\/
+ / |     ||----> Basic Info Panel.
+*  ||----||
+  ___/  ___/
+*/
+
+body {
+	
+	padding-bottom: 300px;
+	
+}
+
+.ie7 .basicInfoPanel {
+	
+	width: 1168px;
+	
+}
+
+
+
+/*
+		 (__)
+		 (oo)
+  /-------\/
+ / |     ||----> Basic Info Content Form Area.
+*  ||----||
+  ___/  ___/
+*/
+
+.frmBasicInfo {
+	
+	width: 1170px;
+	
+	height: 400px;
+	
+}
+
+.ie7 .frmBasicInfo {
+	
+	width: 1168px;
+	
+}
+
+
+
+/*
+		 (__)
+		 (oo)
+  /-------\/
+ / |     ||----> Basic Info Content Form Area Top Bar.
+*  ||----||
+  ___/  ___/
+*/
+
+
+.biToBar {
+	
+	width: 1170px;
+	
+	height: 100px;
+	
+}
+
+.biToBar > input {
+	
+	float: left;
+	
+	width: 360px;
+	
+	height: 38px;
+	
+	margin-top: 30px;
+	
+	margin-left: 500px;
+	
+	padding: 0;
+	
+}
+
+.ie7 .biToBar > input {
+	
+	width: 358px;
+	
+}
+
+.selectIdentityArea {
+	
+	width: 270px;
+	
+	height: 100px;
+	
+}
+
+.selectPanel {
+	
+	top: 35px;
+	
+	left: 35px;
+	
+}
+
+.ie7 .selectPanel {
+	
+	width: 170px;
+	
+}
+
+.selectPanel > ul {
+	
+	width: 160px;
+	
+	margin-top: 55px;
+	
+	margin-left: 5px;
+	
+	border-top: 1px solid #CCC;
+	
+}
+
+.selectPanel > ul > .options {
+	
+	width: 160px;
+	
+	height: 30px;
+	
+	margin-bottom: 5px;
+	
+}
+
+.selectPanel > ul > .options:first-child {
+	
+	margin-top: 5px;
+	
+}
+
+.selectorEd {
+	
+	top: 40px;
+	
+	left: 35px;
+	
+}
+
+.selectorEd > span {
+	
+	margin-top: -3px;
+	
+	margin-left: 39px;
+	
+}
+
+
+
+/*
+		 (__)
+		 (oo)
+  /-------\/
+ / |     ||----> Basic Info Illustration.
+*  ||----||
+  ___/  ___/
+*/
+
+.basicInfoIllustration {
+	
+	width: 331px;
+	
+	height: 182px;
+	
+	left: 26px;
+	
+	bottom: 127px;
+
+}
+
+
+
+/*
+		 (__)
+		 (oo)
+  /-------\/
+ / |     ||----> Basic Info Table.
+*  ||----||
+  ___/  ___/
+*/
+
+.frmBasicInfo > h6 {
+	
+	margin-top: 15px;
+	
+	margin-bottom: 0;
+	
+}
+
+.basicInfoTable {
+	
+	float: right;
+	
+	width: 770px;
+	
+	margin-top: 62px;
+	
+}
+
+.basicInfoTable > div {
+
+	width: 384px;
+
+	height: 100px;
+
+}
+
+.basicInfoTable > div > input {
+
+	margin-top: 44px;
+
+}
+
+.ie7 .basicInfoTable > div > input {
+
+	margin-top: 40px;
+
+}
+
+.basicInfoTable > div > label {
+
+	margin-top: 40px;
+
+	margin-left: 30px;
+
+}
+
+.basicInfoTable > div > .example {
+
+	top: 70px;
+
+	left: 25px;
+
+}
+
+.basicInfoTable > div > .connectionLine {
+
+	width: 20px;
+
+	height: 2px;
+
+	margin-top: 52px;
+
+}
+
+.basicInfoTable > div.tableItem1 > input {
+
+	width: 230px;
+
+}
+
+.basicInfoTable > div.tableItem2 > input {
+
+	width: 50px;
+
+}
+
+.basicInfoTable > div.tableItem3 > input {
+
+	width: 255px;
+
+}
+
+.basicInfoTable > div.tableItem4 > input {
+
+	width: 50px;
+
+}
+
+.basicInfoTable > div.tableItem4 > input.userTele {
+
+	width: 150px;
+
+}
+
+
+
+/*
+		 (__)
+		 (oo)
+  /-------\/
+ / |     ||----> Basic Info Bottom Tool Bar.
+*  ||----||
+  ___/  ___/
+*/
+
+.basicInfoPanel > .basicInfoTool > a {
+	
+	margin-top: 20px;
+	
+	margin-bottom: 20px;
+	
+}
+
+.basicInfoPanel > .basicInfoTool > a.prev {
+	
+	padding-left: 35px;
+	
+	margin-left: 100px;
+
+}
+
+.basicInfoPanel > .basicInfoTool > a.next {
+	
+	padding-right: 35px;
+	
+	margin-right: 100px;
+
+}
