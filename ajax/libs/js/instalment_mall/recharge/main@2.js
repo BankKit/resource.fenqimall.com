@@ -1,7 +1,7 @@
 /**
  * Statement: gehen zum Teufel.
  * 
- * Describe: The javascript boot file of account page (account/index.html).
+ * Describe: The javascript boot file of recharge(account/recharge.html).
  * 
  * Further changes, comments: ~
  * 
@@ -11,9 +11,9 @@
  * 
  * Version: 0.1.0
  * 
- * Creation Date: 2013.10.18 17:07 ( Doris ).
+ * Creation Date: 2013.10.31 14:53 ( Doris ).
  * 
- * Last update: 2013.10.19 11:04 ( Doris ).
+ * Last update: 2013.11.2 14:48 ( Doris ).
  * 
  * License: ~
  * 
@@ -93,12 +93,14 @@
 			'jquery',
 			
 			'cdnjs/jquery_cookie/1.3.1/jquery.cookie.min',
+
+			'cdnjs/jquery_datepicker/0.1.0/jquery.datetimepicker',
 			
 			'cdnjs/gridder/0.1.0/gridder',
 			
 			'cdnjs/jquery_title_modify/title.modify'
 		
-		], function (modernizr, SJ, cookie, gridder, modifyTitle) {
+		], function (modernizr, SJ, cookie, datetimepicker, gridder, modifyTitle) {
 			
 			SJ(function ($) {
 				
@@ -110,9 +112,7 @@
 				 * Navigation Demo.
 				 */
 				
-				nav.find('a').on('click', function (e) {
-					
-					e.preventDefault();
+				nav.find('a').on('click', function () {
 					
 					$(this).addClass('selected').closest('li').siblings().children().removeClass('selected');
 					
@@ -138,45 +138,77 @@
 
 
 				/**
-				 * Basic file upload logic.
+				 * show negative number with green color, show positive number with red color.
 				 */
-
-				$('.closeInfoTip').on('click', function (e) {
-                    
-					e.preventDefault();
-                    
-					$('.myInfoTip').hide();
-                    
-				});
-                
 				
+				var rechargeAmount = $('.detailTable').find('tbody').find('.rechargeAmount');
 
-				/**
-				 * According to member type(student or employee), show related options.
-				 */
+				rechargeAmount.each(function (i, obj) {
 
-				var memberType = $('.memberType');
+					var _this = $(this),
 
-				memberType.on('change', function (e) {
+						firstSymbol = _this.text().slice(0, 1);
 
-					if ($(this).val() === "学生") {
+					if (firstSymbol == "-") {
 
-						$('.student').css('display', 'inline');
+						_this.addClass('negativeNum');
 
-						$('.employee').css('display', 'none');
+					} else {
 
-					} else if ($(this).val() === "白领") {
-
-						$('.employee').css('display', 'inline');
-
-						$('.student').css('display', 'none');
+						_this.addClass('positiveNum');
 
 					}
 
 				});
 
+
+
+				/**
+				 * show even lines with gray background.
+				 */
 				
-                
+                $('.detailTable').find('tr:even').addClass('evenLine');
+
+
+
+                /**
+                 * click, change button background color.
+                 */
+
+                var pageList = $('.pageNum');
+
+                pageList.each(function (i, obj) {
+
+                	var _this = $(this);
+
+                	_this.on('click', function (e) {
+
+                		e.preventDefault();
+
+                		pageList.removeClass('currentPage');
+
+                		_this.addClass('currentPage');
+
+                	});
+
+                });
+
+
+
+
+                $('.startTimeIpt').datepicker({
+
+                	format: 'yyyy-mm-dd'
+
+                })
+
+                $('.endTimeIpt').datepicker({
+
+                	format: 'yyyy-mm-dd'
+
+                })
+
+
                 
 				
 				/**
