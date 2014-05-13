@@ -1,0 +1,74 @@
+/* 人物（ People ） */
+
+
+
+		沈维忠（ Shen Weizhong / Tony Stark ）,
+
+				手机（ Cell Phone ）：(+86)15921299022
+
+				个人全球统一标识（ Gravatar ）：http://en.gravatar.com/swzcowboy
+
+				电子邮箱（ Email ）：swzyocowboy@icloud.com, swzyocowboy@hotmail.com, iTonyYo@gmail.com, itonyyo@vip.qq.com, shenweizhong@facebook.com
+
+				个人主页（ Personal Homepage ）：
+
+				Github：https://github.com/Tony-Stark/
+
+				QQ：563214029, http://user.qzone.qq.com/563214029/
+
+				Facebook：https://www.facebook.com/shenweizhong
+
+				Google+：https://plus.google.com/114960355664861539339
+
+				腾讯微博（ Tencent MicroBlog ）：563214029, iTonyYo, http://t.qq.com/iTonyYo
+
+				新浪微博（ Sina MicroBlog ）：weibo.com/itonyyo
+
+				搜狐微博（ Souhu MicroBlog ）：SWZYO.t.sohu.com
+
+				Twitter：@iTonyYo, https://twitter.com/iTonyYo
+
+				来自（ From ）：江苏省淮安市 ( Huai'an City, Jiang'su Province )
+
+
+
+/* 团队（ TEAM ） */
+
+
+
+		前端开发人员（ Front-end Browser-side Developer ）：
+
+				① 沈维忠 ( Shen Weizhong / Tony Stakr )
+
+
+
+		服务器端开发人员（ Back-end Server-side Developer ）：
+
+				① 沈维忠 ( Shen Weizhong / Tony Stakr )
+
+
+
+		测试人员（ Testing Personnel ）：
+
+				① 沈维忠 ( Shen Weizhong / Tony Stakr )
+
+
+
+		标准监督人（ Standard Man ）：
+
+				① 沈维忠 ( Shen Weizhong / Tony Stakr )
+
+
+
+/* 感谢（ THANKS ） */
+
+
+
+				......
+
+
+
+/* 备注（ COMMENT ） */
+
+
+				最近更新（ Last update ）：2014年05月13日14时18分（ 14:18 13.05.2014 ）
