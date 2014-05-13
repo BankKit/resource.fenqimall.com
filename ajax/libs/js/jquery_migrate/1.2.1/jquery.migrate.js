@@ -4,62 +4,53 @@
  * Copyright 2005, 2013 jQuery Foundation, Inc. and other contributors; Licensed MIT
  */
 
-(function (name, factory) {
-    
-	// See http://bugs.jquery.com/ticket/13335
-	"use strict";
-    
-	var theModule = factory,
-        
-        // this is considered "safe":
-        hasDefine = typeof define === "function" && define.amd,
-        
-        // hasDefine = typeof define === "function",
-        hasExports = typeof module !== "undefined" && module.exports;
+(function (root, factory) {
 
-    if ( hasDefine ){ // AMD Module
-        
-    	define(['jquery'], theModule);
-        
-    } else if ( hasExports ) { // Node.js Module (commonjs compatible)
-        
-    	module.exports = theModule;
-        
-    } else { // Assign to common namespaces or simply the global object (window)
-        
-    	(this.jQuery || this.ender || this.$ || this)[name] = theModule();
-        
-    }
-    
-} ('migrate', function (SJ) {
-    
 	// See http://bugs.jquery.com/ticket/13335
 	"use strict";
-    
+
+	var hasDefine = typeof define === "function" && define.amd;
+
+  	if (hasDefine) { // AMD Module
+
+    	define(['jquery'], factory);
+
+  	} else {
+
+        // Browser globals
+        root.JQMIGRATE = factory(root.b);
+
+    }
+
+} (this, function (SJ) {
+
+	// See http://bugs.jquery.com/ticket/13335
+	"use strict";
+
 	var warnedAbout = {};
-    
+
 	// List of warnings already given; public read only
 	SJ.migrateWarnings = [];
-    
+
 	// Set to true to prevent console output; migrateWarnings still maintained
 	SJ.migrateMute = true;
-    
+
 	// Show a message on the console so devs know we're active
 	if ( !SJ.migrateMute && window.console && window.console.log ) {
 		window.console.log("JQMIGRATE: Logging is active");
 	}
-    
+
 	// Set to false to disable traces that appear with warnings
 	if ( SJ.migrateTrace === undefined ) {
 		SJ.migrateTrace = true;
 	}
-    
+
 	// Forget any warnings we've already given; public
 	SJ.migrateReset = function() {
 		warnedAbout = {};
 		SJ.migrateWarnings.length = 0;
 	};
-    
+
 	function migrateWarn( msg) {
 		var console = window.console;
 		if ( !warnedAbout[ msg ] ) {
@@ -73,7 +64,7 @@
 			}
 		}
 	}
-    
+
 	function migrateWarnProp( obj, prop, value, msg ) {
 		if ( Object.defineProperty ) {
 			// On ES5 browsers (non-oldIE), warn if the code tries to get prop;
@@ -96,17 +87,17 @@
 				// IE8 is a dope about Object.defineProperty, can't warn there
 			}
 		}
-        
+
 		// Non-ES5 (or broken) browser; just set the property
 		SJ._definePropertyBroken = true;
 		obj[ prop ] = value;
 	}
-    
+
 	if ( document.compatMode === "BackCompat" ) {
 		// jQuery has never supported or tested Quirks Mode
 		migrateWarn( "jQuery is not compatible with Quirks Mode" );
 	}
-    
+
 	var attrFn = SJ( "<input/>", { size: 1 } ).attr("size") && SJ.attrFn,
 		oldAttr = SJ.attr,
 		valueAttrGet = SJ.attrHooks.value && SJ.attrHooks.value.get ||
@@ -124,7 +115,7 @@
 	SJ.attr = function( elem, name, value, pass ) {
 		var lowerName = name.toLowerCase(),
 			nType = elem && elem.nodeType;
-        
+
 		if ( pass ) {
 			// Since pass is used internally, we only warn for new jQuery
 			// versions where there isn't a pass arg in the formal params
@@ -136,13 +127,13 @@
 				return SJ( elem )[ name ]( value );
 			}
 		}
-        
+
 		// Warn if user tries to set `type`, since it breaks on IE 6/7/8; by checking
 		// for disconnected elements we don't warn on $( "<button>", { type: "button" } ).
 		if ( name === "type" && value !== undefined && rnoType.test( elem.nodeName ) && elem.parentNode ) {
 			migrateWarn("Can't change the 'type' of an input or button in IE 6/7/8");
 		}
-        
+
 		// Restore boolHook for boolean property/attribute synchronization
 		if ( !SJ.attrHooks[ lowerName ] && rboolean.test( lowerName ) ) {
 			SJ.attrHooks[ lowerName ] = {
@@ -153,7 +144,7 @@
 						property = SJ.prop( elem, name );
 					return property === true || typeof property !== "boolean" &&
 						( attrNode = elem.getAttributeNode(name) ) && attrNode.nodeValue !== false ?
-                        
+
 						name.toLowerCase() :
 						undefined;
 				},
@@ -170,22 +161,22 @@
 							// Only set the IDL specifically if it already exists on the element
 							elem[ propName ] = true;
 						}
-                        
+
 						elem.setAttribute( name, name.toLowerCase() );
 					}
 					return name;
 				}
 			};
-            
+
 			// Warn only for attributes that can remain distinct from their properties post-1.9
 			if ( ruseDefault.test( lowerName ) ) {
 				migrateWarn( "jQuery.fn.attr('" + lowerName + "') may use property instead of attribute" );
 			}
 		}
-        
+
 		return oldAttr.call( SJ, elem, name, value );
 	};
-    
+
 	// attrHooks: value
 	SJ.attrHooks.value = {
 		get: function( elem, name ) {
@@ -212,7 +203,7 @@
 			elem.value = value;
 		}
 	};
-    
+
 	var matched, browser,
 		oldInit = SJ.fn.init,
 		oldParseJSON = SJ.parseJSON,
@@ -222,7 +213,7 @@
 	// $(html) "looks like html" rule change
 	SJ.fn.init = function( selector, context, rootjQuery ) {
 		var match;
-        
+
 		if ( selector && typeof selector === "string" && !SJ.isPlainObject( context ) &&
 				(match = rquickExpr.exec( SJ.trim( selector ) )) && match[ 0 ] ) {
 			// This is an HTML string according to the "old" rules; is it still?
@@ -263,14 +254,14 @@
 
 	SJ.uaMatch = function( ua ) {
 		ua = ua.toLowerCase();
-        
+
 		var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
 			/(webkit)[ \/]([\w.]+)/.exec( ua ) ||
 			/(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
 			/(msie) ([\w.]+)/.exec( ua ) ||
 			ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
 			[];
-        
+
 		return {
 			browser: match[ 1 ] || "",
 			version: match[ 2 ] || "0"
@@ -281,19 +272,19 @@
 	if ( !SJ.browser ) {
 		matched = SJ.uaMatch( navigator.userAgent );
 		browser = {};
-        
+
 		if ( matched.browser ) {
 			browser[ matched.browser ] = true;
 			browser.version = matched.version;
 		}
-        
+
 		// Chrome is Webkit, but Webkit is also Safari.
 		if ( browser.chrome ) {
 			browser.webkit = true;
 		} else if ( browser.webkit ) {
 			browser.safari = true;
 		}
-        
+
 		SJ.browser = browser;
 	}
 
@@ -313,7 +304,7 @@
 			if ( context && context instanceof SJ && !(context instanceof jQuerySub) ) {
 				context = jQuerySub( context );
 			}
-            
+
 			return SJ.fn.init.call( this, selector, context, rootjQuerySub );
 		};
 		jQuerySub.fn.init.prototype = jQuerySub.fn;
@@ -334,7 +325,7 @@
 	SJ.fn.data = function( name ) {
 		var ret, evt,
 			elem = this[0];
-        
+
 		// Handles 1.7 which has this behavior and 1.8 which doesn't
 		if ( elem && name === "events" && arguments.length === 1 ) {
 			ret = SJ.data( elem, name );
@@ -363,14 +354,14 @@
 			context = context || document;
 			context = !context.nodeType && context[0] || context;
 			context = context.ownerDocument || context;
-            
+
 			migrateWarn("jQuery.clean() is deprecated");
-            
+
 			var i, elem, handleScript, jsTags,
 				ret = [];
-            
+
 			SJ.merge( ret, SJ.buildFragment( elems, context ).childNodes );
-            
+
 			// Complex logic lifted directly from jQuery 1.8
 			if ( fragment ) {
 				// Special handling of each script element
@@ -384,7 +375,7 @@
 							fragment.appendChild( elem );
 					}
 				};
-                
+
 				for ( i = 0; (elem = ret[i]) != null; i++ ) {
 					// Check if we're done after handling an executable script
 					if ( !( SJ.nodeName( elem, "script" ) && handleScript( elem ) ) ) {
@@ -393,7 +384,7 @@
 						if ( typeof elem.getElementsByTagName !== "undefined" ) {
 							// handleScript alters the DOM, so use jQuery.merge to ensure snapshot iteration
 							jsTags = SJ.grep( SJ.merge( [], elem.getElementsByTagName("script") ), handleScript );
-                            
+
 							// Splice the scripts into ret after their former ancestor and advance our index beyond them
 							ret.splice.apply( ret, [i + 1, 0].concat( jsTags ) );
 							i += jsTags.length;
@@ -401,7 +392,7 @@
 					}
 				}
 			}
-            
+
 			return ret;
 		};
 	}
@@ -466,7 +457,7 @@
 			return oldToggle.apply( this, arguments );
 		}
 		migrateWarn("jQuery.fn.toggle(handler, handler...) is deprecated");
-        
+
 		// Save reference to arguments for access in closure
 		var args = arguments,
 			guid = fn.guid || SJ.guid++,
@@ -475,20 +466,20 @@
 				// Figure out which function to execute
 				var lastToggle = ( SJ._data( this, "lastToggle" + fn.guid ) || 0 ) % i;
 				SJ._data( this, "lastToggle" + fn.guid, lastToggle + 1 );
-                
+
 				// Make sure that clicks stop
 				event.preventDefault();
-                
+
 				// and execute the function
 				return args[ lastToggle ].apply( this, arguments ) || false;
 			};
-        
+
 		// link all the functions, so any of them can unbind this click handler
 		toggler.guid = guid;
 		while ( i < args.length ) {
 			args[ i++ ].guid = guid;
 		}
-        
+
 		return this.click( toggler );
 	};
 
@@ -523,7 +514,7 @@
 			SJ.event.special[ name ] = {
 				setup: function() {
 					var elem = this;
-                    
+
 					// The document needs no shimming; must be !== for oldIE
 					if ( elem !== document ) {
 						SJ.event.add( document, name + "." + SJ.guid, function() {
@@ -542,5 +533,5 @@
 			};
 		}
 	);
-    
+
 }));

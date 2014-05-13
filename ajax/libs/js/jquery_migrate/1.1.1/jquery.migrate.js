@@ -3,35 +3,26 @@
  * https://github.com/jquery/jquery-migrate
  * Copyright 2005, 2013 jQuery Foundation, Inc. and other contributors; Licensed MIT
  */
- 
-(function (name, factory) {
+
+(function (root, factory) {
 
 	// See http://bugs.jquery.com/ticket/13335
 	"use strict";
 
-	var theModule = factory(),
+	var hasDefine = typeof define === "function" && define.amd;
 
-      	// this is considered "safe":
-      	hasDefine = typeof define === "function" && define.amd,
+  	if (hasDefine) { // AMD Module
 
-      	// hasDefine = typeof define === "function",
-      	hasExports = typeof module !== "undefined" && module.exports;
+    	define(['jquery'], factory);
 
-  	if ( hasDefine ){ // AMD Module
+  	} else {
 
-    	define(['jquery'], theModule);
+        // Browser globals
+        root.JQMIGRATE = factory(root.b);
 
-  	} else if ( hasExports ) { // Node.js Module (commonjs compatible)
+    }
 
-    	module.exports = theModule;
-
-  	} else { // Assign to common namespaces or simply the global object (window)
-
-    	(this.jQuery || this.ender || this.$ || this)[name] = theModule;
-
-  	}
-
-} ('migrate', function (SJ) {
+} (this, function (SJ) {
 
 	// See http://bugs.jquery.com/ticket/13335
 	"use strict";
@@ -46,31 +37,49 @@
 
 	// Show a message on the console so devs know we're active
 	if ( !SJ.migrateMute && window.console && console.log ) {
+
 		console.log("JQMIGRATE: Logging is active");
+
 	}
 
 	// Set to false to disable traces that appear with warnings
 	if ( SJ.migrateTrace === undefined ) {
+
 		SJ.migrateTrace = true;
+
 	}
 
 	// Forget any warnings we've already given; public
 	SJ.migrateReset = function() {
+
 		warnedAbout = {};
+
 		SJ.migrateWarnings.length = 0;
+
 	};
 
 	function migrateWarn( msg) {
+
 		if ( !warnedAbout[ msg ] ) {
+
 			warnedAbout[ msg ] = true;
+
 			SJ.migrateWarnings.push( msg );
+
 			if ( window.console && console.warn && !SJ.migrateMute ) {
+
 				console.warn( "JQMIGRATE: " + msg );
+
 				if ( SJ.migrateTrace && console.trace ) {
+
 					console.trace();
+
 				}
+
 			}
+
 		}
+
 	}
 
 	function migrateWarnProp( obj, prop, value, msg ) {
