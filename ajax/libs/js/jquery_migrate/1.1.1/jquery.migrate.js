@@ -18,7 +18,7 @@
   	} else {
 
         // Browser globals
-        root.JQMIGRATE = factory(root.b);
+        root.JQMIGRATE = factory(root.jQuery);
 
     }
 
