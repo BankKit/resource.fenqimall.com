@@ -1,5 +1,5 @@
-亨元金融 ( Hengyuan Finance )  ![Build Passing](http://img.shields.io/travis/joyent/node/v0.6.svg)
-==================================================================================================
+亨元金融 ( Hengyuan Finance )  ![Build Passing](http://img.shields.io/travis/joyent/node/v0.6.svg?style=flat 'Build Passing')
+============================================================================================================================
 静态资源内容与结构 ( CDN Content & Structure )
 
 
