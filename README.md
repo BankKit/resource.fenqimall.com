@@ -19,3 +19,5 @@
 
 如果你发现一些总是出现的问题，无论是在访问网站时发现，亦或是在查看我们的代码时发现，可以在[Trello]( '点击查看')、[Github Issues](http://goo.gl/cIZmqj '点击查看')上查看、提出问题，并与我们展开讨论。
 后期我们的测试人员会尽快把相关BUG定义、指定流程等发布至[Github Wiki](http://goo.gl/EVkRPD '点击查看')之下。
+
+![Geek](http://instasrc.com/1024x468/geek)
